@@ -10,7 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <title><%= full_title(yield(:title)) %></title>
+
   <body>
+  <%= render 'layouts/header' %>
+  <main>
+    <%= render 'shared/flash' %>
     <%= yield %>
+  </main>
+  <%= render 'layouts/footer' %>
   </body>
 </html>
