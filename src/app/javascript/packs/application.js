@@ -12,7 +12,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-import 'bootstrap';
+
 
 // rails6.0 で　"$ is not defined" が出る場合
 // https://qiita.com/___xxx_/items/23f3c6939526fffa5d82
@@ -20,7 +20,10 @@ var jQuery = require('jquery')
 global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
-import '../stylesheets/application.scss';
+import "@fortawesome/fontawesome-free/js/all";
+
+import "../css/application.css";
+import "../css/application.scss";
 import '../javascripts/application.js';
 
 // webpackerを使ってjs,scssを適用

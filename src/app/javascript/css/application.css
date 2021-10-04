@@ -1,0 +1,6 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+/* 読み込む順番の指定方法 https://qiita.com/takish/items/c5f264577d2db75fd10c */

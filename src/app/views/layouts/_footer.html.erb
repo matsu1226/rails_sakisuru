@@ -1,1 +1,24 @@
-<footer></footer>
+<footer>
+  <nav class="fixed bottom-0 h-10 flex justify-between items-center">
+    <%= link_to "#", class: "w-1/5 flex flex-col" do%>
+    <i class="h-3/4 fas fa-list-ul"></i>
+    <p class="h-1/4">一覧</p>
+    <% end %>
+    <%= link_to "#", class: "w-1/5 flex flex-col" do %>
+    <i class="h-3/4 fas fa-coins"></i>
+    <p class="h-1/4">収入</p>
+    <% end %>
+    <%= link_to "#", class: "w-1/5 flex flex-col" do %>
+    <i class="h-3/4 fas fa-lg fa-pencil-alt"></i>
+    <p class="h-1/4">支出</p>
+    <% end %>
+    <%= link_to "#", class: "w-1/5 flex flex-col" do %>
+    <i class="h-3/4 fas fa-chart-pie"></i>
+    <p class="h-1/4">月合計</p>
+    <% end %>
+    <%= link_to "#", class: "w-1/5 flex flex-col" do %>
+    <i class="h-3/4 fas fa-chart-bar"></i>
+    <p class="h-1/4">年合計</p>
+    <% end %>
+  </nav>
+</footer>
