@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
+<p> <%= @email %>さん、初めまして。</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>サキスルに仮登録いただきありがとうございます。</p>
+<p>以下のリンクをクリックして、アカウントの本登録を完了させてください。:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '本登録はこちら', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+----------
+サキスル運営事務局
+----------

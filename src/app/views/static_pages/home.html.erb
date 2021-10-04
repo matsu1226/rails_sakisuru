@@ -1,0 +1,13 @@
+<%= provide(:title, "ようこそ") %>
+
+<section class="intro-section btn-wrapper">
+  <h2>さっそく、つかってみよう！</h2>
+  <%= link_to "会員登録へ", new_user_registration_path, class: "btn standerd-btn btn-primary" %>
+  <%= link_to  new_user_session_path, class: "btn standerd-btn btn-primary" do %>
+  登録済みの方はこちら<br>（ログイン）
+  <% end %>
+  <%#= link_to  guest_sign_in_path, class: "btn standerd-btn btn-primary" do %>
+  <%# end %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn standerd-btn btn-primary" %>
+
+</section>
