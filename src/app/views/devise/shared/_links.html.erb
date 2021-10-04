@@ -1,5 +1,7 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <p class="text-center mx-0 mb-2">すでに登録済みの方は
+  <%= link_to "こちら", new_session_path(resource_name), class:"underline" %><br />
+  </p>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -11,7 +13,9 @@
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <p class="text-center mx-0 mb-2">仮登録メールを再送したい場合は
+  <%= link_to "こちら", new_confirmation_path(resource_name), class:"underline" %><br />
+  </p>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>

@@ -12,11 +12,9 @@
 
   <body>
   <%= render 'layouts/header' %>
-  <main>
+  <main class="w-11/12 mx-auto pb-20">
     <%= render 'shared/flash' %>
-    <main>
-      <%= yield %>
-    </main>
+    <%= yield %>
   </main>
   <%= render 'layouts/footer' %>
   </body>
