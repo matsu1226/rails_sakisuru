@@ -1,6 +1,13 @@
 <header>
   <nav class="border-b h-10 flex justify-between items-center">
     <h1 class="text-2xl font-bold m-2"><%= yield(:title) %></h1>
-    <i class="fas fa-lg fa-users-cog m-2"></i>
+    <div class="flex">
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "flex justify-center items-center" do %>
+        <i class="fas  fa-lg fa-sign-out-alt m-2"></i>
+        <% end %>
+      <% end %>
+      <i class="fas fa-lg fa-users-cog m-2"></i>
+    </div>
   </nav>
 </header>

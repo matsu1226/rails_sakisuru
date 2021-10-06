@@ -28,6 +28,10 @@
   </div>
 <% end %>
 
-  <p class="text-center mx-0 mb-2">会員登録されていない方は
-  <%= link_to "こちら", new_registration_path(resource_name), class:"underline" %><br />
-  </p>
+<p class="text-center mx-0 mb-2">会員登録されていない方は
+<%= link_to "こちら", new_registration_path(resource_name), class:"underline" %><br />
+</p>
+
+<p class="text-center mx-0 mb-2">仮登録メールを再送したい場合は
+<%= link_to "こちら", new_confirmation_path(resource_name), class:"underline" %><br />
+</p>
