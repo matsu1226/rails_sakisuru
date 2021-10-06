@@ -135,9 +135,6 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_content '送付済みの仮登録メールを確認して、本登録を完了させてください。' 
         end
         
-        参考）本登録リンク踏んだ時のSQLの挙動
-        UPDATE `users` SET  `users`.`confirmed_at` = '2021-10-06 05:34:01',
-                            `users`.`updated_at` = '2021-10-06 05:34:01.358697' WHERE `users`.`id` = 9
         describe "登録済みユーザー" do
           before do
             # confirmメソッド => 本登録の実行
