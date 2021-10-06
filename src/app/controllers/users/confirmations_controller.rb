@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# https://github.com/heartcombo/devise/blob/master/app/controllers/devise/confirmations_controller.rb
 class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new

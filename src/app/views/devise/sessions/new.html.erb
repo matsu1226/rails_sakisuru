@@ -7,12 +7,12 @@
   </div>
 
   <div class="field my-5 mx-auto">
-  <div class="flex justify-between">
-    <%= f.label :password %><br />  
-    <p class="text-center mx-0 mb-2">パスワードを忘れた方は
-      <%= link_to "こちら", new_password_path(resource_name), class:"underline" %><br />
-    </p>
-  </div>
+    <div class="flex justify-between">
+      <%= f.label :password %><br />  
+      <p class="text-center mx-0 mb-2">パスワードを忘れた方は
+        <%= link_to "こちら", new_password_path(resource_name), class:"underline" %><br />
+      </p>
+    </div>
     <%= f.password_field :password, autocomplete: "current-password", class:"border p-0.5 w-full" %>
   </div>
 
