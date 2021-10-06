@@ -38,4 +38,10 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p class="text-center mx-0 mb-2">すでに登録済みの方は
+<%= link_to "こちら", new_session_path(resource_name), class:"underline" %><br />
+</p>
+
+  <p class="text-center mx-0 mb-2">仮登録メールを再送したい場合は
+<%= link_to "こちら", new_confirmation_path(resource_name), class:"underline" %><br />
+</p>
