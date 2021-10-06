@@ -8,10 +8,10 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7-node  
-    working_directory: ~/repec-exercise-sho/src 
+    working_directory: ~/rails_sakisuru/src 
     steps:
       - checkout:
-          path: ~/repec-exercise-sho
+          path: ~/rails_sakisuru
       - ruby/install-deps 
 
   test: 
@@ -28,10 +28,10 @@ jobs:
       BUNDLE_PATH: vendor/bundle
       APP_DATABASE_HOST: "127.0.0.1" 
       RAILS_ENV: test
-    working_directory: ~/repec-exercise-sho/src
+    working_directory: ~/rails_sakisuru/src
     steps:
       - checkout: 
-          path: ~/repec-exercise-sho
+          path: ~/rails_sakisuru
       - ruby/install-deps 
       - run:
           name: Database setup
