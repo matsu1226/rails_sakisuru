@@ -20,7 +20,7 @@ RSpec.describe "Users", type: :system do
           find("#user_birthday_2i").find("option[value='11']").select_option
           find("#user_birthday_3i").find("option[value='26']").select_option
           click_button '仮登録メール送信'
-          expect(page).to have_content '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。' 
+          expect(page).to have_content '仮登録のメールを送信しました。メール内のリンクからアカウントを本登録させてください。' 
           expect(ActionMailer::Base.deliveries.count).to eq 1
           test_user = User.find_by(email: "test@example.com")
           expect( test_user.name ).to eq "テスト" 
@@ -57,13 +57,11 @@ RSpec.describe "Users", type: :system do
         end
 
         describe "emailの重複" do
-          before do
-            @user = FactoryBot.create(:user) 
-          end
+          let!(:user) { FactoryBot.create(:user) }
 
           it "emailの重複" do
             fill_in '名前', with: "テスト"
-            fill_in 'Eメール', with: @user.email
+            fill_in 'Eメール', with: user.email
             fill_in 'パスワード', with: "example01"
             fill_in 'パスワード（確認用）', with: "example01"
             click_button '仮登録メール送信'
@@ -99,5 +97,23 @@ RSpec.describe "Users", type: :system do
 
       end
     end
+
+    describe "仮登録メール再送(users/confirmation/new)" do
+      let!(:user) { FactoryBot.create(:user) }
+      before { visit new_user_confirmation_path }
+
+      it "DBに存在していないemail" do
+        fill_in 'Eメール', with: "test@example.com"
+        click_button '仮登録メール再送'
+        expect(page).to have_content 'Eメールは見つかりませんでした。' 
+      end
+      
+      it "DBに存在するemail" do
+        fill_in 'Eメール', with: user.email
+        expect { click_button '仮登録メール再送' }.to change { ActionMailer::Base.deliveries.count }.by(1)
+      end
+      
+    end
+
   end
 end
