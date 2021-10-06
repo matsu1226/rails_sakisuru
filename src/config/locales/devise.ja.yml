@@ -45,7 +45,7 @@ ja:
       not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
       timeout: セッションがタイムアウトしました。もう一度ログインしてください。
       unauthenticated: ログインもしくはアカウント登録してください。
-      unconfirmed: メールアドレスの本人確認が必要です。
+      unconfirmed: 送付済みの仮登録メールを確認して、本登録を完了させてください。
     mailer:
       confirmation_instructions:
         action: メールアドレスの確認

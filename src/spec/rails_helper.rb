@@ -61,6 +61,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # https://breakthrough-tech.yuta-u.com/rspec/how-to-make-spec-support/
+  config.include CustomModule
+
   # travel_toを使える
   config.include ActiveSupport::Testing::TimeHelpers
+
+  # sign_in, sign_outヘルパー
+  config.include Devise::Test::IntegrationHelpers
+
 end

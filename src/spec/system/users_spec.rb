@@ -115,5 +115,70 @@ RSpec.describe "Users", type: :system do
       
     end
 
+    describe "ログイン(users/sign_in)" do
+      let!(:user) { FactoryBot.create(:user) }
+      before { visit new_user_session_path }
+    
+      describe "ログインアクション" do
+
+        it "未登録ユーザー" do
+          fill_in 'Eメール', with: "test@example.com"
+          fill_in 'パスワード', with: "example01"
+          click_button 'ログイン'
+          expect(page).to have_content 'Eメールまたはパスワードが違います。' 
+        end
+        
+        it "本登録前ユーザー" do
+          fill_in 'Eメール', with: user.email
+          fill_in 'パスワード', with: user.password
+          click_button 'ログイン'
+          expect(page).to have_content '送付済みの仮登録メールを確認して、本登録を完了させてください。' 
+        end
+        
+        describe "登録済みユーザー" do
+          before do
+            # confirmメソッド => 本登録の実行
+            user.confirm 
+            fill_in 'Eメール', with: user.email
+            fill_in 'パスワード', with: user.password
+            click_button 'ログイン'
+          end
+          
+          it { expect(page).to have_content "ログインしました。" }
+        end
+        
+        describe "登録済みユーザー（パスワードエラー）" do
+          before do
+            user.confirm 
+            fill_in 'Eメール', with: user.email
+            fill_in 'パスワード', with: "a" * 10
+            click_button 'ログイン'
+          end
+          
+          it { expect(page).to have_content "Eメールまたはパスワードが違います。"  }
+        end
+      end
+
+      # describe "ログイン後に入れないページ" do
+      #   before { sign_in(user) }
+      #   it "ログインページ" do
+      #     visit new_user_session_path
+      #     expect(page).to have_content "プロフィール"
+      #   end
+
+      #   it "会員登録ページ" do
+      #     visit new_user_registration_path
+      #     expect(page).to have_content "プロフィール"
+      #   end
+
+      # end
+
+      
+    end
+
+    describe "ログアウト(DELETE users/sign_out)" do
+
+    end
+
   end
 end
