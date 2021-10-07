@@ -2,9 +2,12 @@
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
 
-    <%= link_to tags_edit_frame_path(@frame.id), class: "p-1 flex justify-end" do %>
-    <i class="fas fa-times fa-2x"></i>
-    <% end %>
+    <div class="text-right">
+      <%= link_to tags_edit_frame_path(@frame.id), class: "p-5 -mr-7" do %>
+      <%# <span class="btn-close"></span> %>
+      <i class="fas fa-times fa-lg"></i> 
+      <% end %>
+    </div>
 
     <%# remote: trueにすることで、tags#createをjs(Ajax/create.js.erb)で処理 %>
     <%= form_with(model: @tag, local: false) do |f| %>
@@ -15,6 +18,14 @@
     <div class="field my-5 mx-auto">
       <div class="flex justify-between">
         <%= f.label :text %><br />
+        <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
+      </div>
+      <%= f.text_area :text, class:"h-20 border p-0.5 w-full" %>
+    </div>
+
+    <div class="field my-5 mx-auto">
+      <div class="flex justify-between">
+        <%= f.label :area_num %><br />
         <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
       </div>
       <%= f.text_area :text, class:"h-20 border p-0.5 w-full" %>

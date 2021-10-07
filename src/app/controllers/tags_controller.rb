@@ -31,7 +31,7 @@ class TagsController < ApplicationController
   private
     def tag_params
       # params.require(:tag).permit(:text, :privated)
-      params.require(:tag).permit(:text, :privated, :frame_id)
+      params.require(:tag).permit(:text, :privated, :frame_id, :area_num)
     end
 
 end

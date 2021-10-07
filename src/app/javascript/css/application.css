@@ -41,3 +41,20 @@ html {
   padding: 10vw;
   border-radius: 5px;
 }
+
+
+
+.btn-close::before,
+.btn-close::after {
+display: block;
+content: "";
+width: 50px;
+height: 1px;
+background: #000;
+}
+.btn-close::before {
+transform: rotate(-45deg);
+}
+.btn-close::after {
+transform: rotate(45deg);
+}
