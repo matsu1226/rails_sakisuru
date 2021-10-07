@@ -20,15 +20,17 @@
         <%= f.label :text %><br />
         <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
       </div>
-      <%= f.text_area :text, class:"h-20 border p-0.5 w-full" %>
+      <%= f.text_area :text, class:"h-20 border p-0.5 w-full resize-none" %>
     </div>
 
     <div class="field my-5 mx-auto">
-      <div class="flex justify-between">
-        <%= f.label :area_num %><br />
-        <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
-      </div>
-      <%= f.text_area :text, class:"h-20 border p-0.5 w-full" %>
+      <%= f.label :area_num %><br />
+      <%= f.select :area_num, [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4']] , {} ,class:"border p-0.5" %>
+    </div>
+
+    <div class="field my-5 mx-auto">
+      <%= f.label :privated %><br />
+      <%= f.check_box :privated, class:"border h-5 w-5", as: :boolean %>
     </div>
 
     <%# frame_idの受渡し %>
