@@ -1,7 +1,7 @@
 <%= provide(:title, "投稿の作成") %>
 
 <%= form_with(model: @frame, url: frames_path, class:" w-4/5 mx-auto  my-5", local: true ) do |f| %>
-  <%= render "./shared/error_messages" %>
+  <%= render "./shared/error_messages", elm: @frame %>
 
   <div class="field my-5 mx-auto">
     <div class="flex justify-between">
@@ -23,8 +23,3 @@
     <%= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
   </div>
 <% end %>
-
-
-<script>
-
-</script>

@@ -16,3 +16,28 @@ html {
 .field_with_errors {
   display: contents;
 }
+
+.modal{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.modal__bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+.modal__content{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  width: 90vw;
+  height: 50vh;
+  padding: 10vw;
+  border-radius: 5px;
+}

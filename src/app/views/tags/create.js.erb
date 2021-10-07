@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+    $("tbody").append("<%= j(render("tr", user: @user)) %>");
+<%  elsif @status == 'fail' %>
+    alert('error!');
+<% end %>
+$("#tag_model").fadeOut();

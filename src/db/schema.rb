@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_074135) do
+ActiveRecord::Schema.define(version: 2021_10_07_062326) do
 
   create_table "frames", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "statement"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_074135) do
     t.bigint "frame_id", null: false
     t.text "text"
     t.integer "area_num"
-    t.boolean "privated"
+    t.boolean "privated", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["frame_id"], name: "index_tags_on_frame_id"

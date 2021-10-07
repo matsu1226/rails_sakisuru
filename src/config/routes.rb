@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show'
   get 'tags/new'
   get 'tags/index'
   get 'tags/edit'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root 'static_pages#introduction'
   devise_for :users
+  resources :users, only: [:show]
   resources :frames do
     get 'tags_edit', on: :member    # frames/1/tags_edit (tags_edit_frame_path)
   end

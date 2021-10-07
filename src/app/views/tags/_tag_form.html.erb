@@ -1,0 +1,33 @@
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close"></div>
+  <div class="modal__content">
+
+    <%= link_to tags_edit_frame_path(@frame.id), class: "p-1 flex justify-end" do %>
+    <i class="fas fa-times fa-2x"></i>
+    <% end %>
+
+    <%# remote: trueにすることで、tags#createをjs(Ajax/create.js.erb)で処理 %>
+    <%= form_with(model: @tag, local: false) do |f| %>
+    <div id="error_partial">
+      <%= render "./shared/error_messages", elm: @tag %>
+    </div>
+
+    <div class="field my-5 mx-auto">
+      <div class="flex justify-between">
+        <%= f.label :text %><br />
+        <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
+      </div>
+      <%= f.text_area :text, class:"h-20 border p-0.5 w-full" %>
+    </div>
+
+    <%# frame_idの受渡し %>
+    <%= f.hidden_field :frame_id, value: @frame.id %>
+
+    <div class="actions my-6 mx-auto">
+      <%= f.submit "作成", class:"block mx-auto", id: "tag_create_btn", disabled: true %>
+    </div>
+
+    <% end %>
+  </div>
+
+</div>

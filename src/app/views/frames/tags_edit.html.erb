@@ -6,7 +6,9 @@
   <p><%= @frame.statement %></p>
 </div>
 
-<%= link_to new_tag_path, remote: true, class: "btn btn-lg, btn-primary" do %>
+<%# Ajax化でモーダル式のTag_newフォーム表示 %>
+<%# tags#createでframe_idを使うので、frameをtags#newにも渡す。 %>
+<%= link_to new_tag_path(frame: @frame), remote: true, class: "btn btn-lg, btn-primary" do %>
 <i class="fas fa-plus"></i>
 <% end%>
 
@@ -14,7 +16,5 @@
   <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
 </div>
 
-
-<script>
-
-</script>
+<%# Tag_newのモーダルがここに表示される %>
+<div id="tag_model"></div>
