@@ -29,6 +29,13 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      date: "%Y/%m/%d"
+      short_date: "%m/%d"
+      short_date_with_time: "%m/%d %H:%M"
+      day_only: "%d"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

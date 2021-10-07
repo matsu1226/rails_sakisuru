@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'tags/new'
+  get 'tags/index'
+  get 'tags/edit'
   root 'static_pages#home'
   
   get '/home', to: 'static_pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root 'static_pages#introduction'
   devise_for :users
-  resources :frames
+  resources :frames do
+    get 'tags_edit', on: :member    # frames/1/tags_edit (tags_edit_frame_path)
+  end
+  resources :tags
   # devise_for :users, skip: ['confirmations']  # 除外
   # http://localhost:3000/letter_opener で開発環境で送信されたメールの確認
   if Rails.env.development?

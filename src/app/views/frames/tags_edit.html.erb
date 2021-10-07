@@ -1,0 +1,20 @@
+<%= provide(:title, "投稿詳細の作成") %>
+
+<div class="field my-5 mx-auto">
+  <p><%= l @frame.updated_at, format: :date %></p>
+  <p>statement</p><br />
+  <p><%= @frame.statement %></p>
+</div>
+
+<%= link_to new_tag_path, remote: true, class: "btn btn-lg, btn-primary" do %>
+<i class="fas fa-plus"></i>
+<% end%>
+
+<div class="actions my-6 mx-auto">
+  <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
+</div>
+
+
+<script>
+
+</script>

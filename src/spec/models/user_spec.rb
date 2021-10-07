@@ -19,6 +19,8 @@ RSpec.describe User, type: :model do
   it {should respond_to(:confirmation_token)}
   it {should respond_to(:confirmed_at)}
   it {should respond_to(:confirmation_sent_at)}
+  
+  it {should respond_to(:frames)}
 
 
   describe "正しいuserを保存するテスト" do
