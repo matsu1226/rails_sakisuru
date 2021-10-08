@@ -1,6 +1,17 @@
 <% if @status == 'success' %>
-    $("tbody").append("<%= j(render("tr", user: @user)) %>");
+	<% if @tag.area_num == 1 %>
+  	$("#tags_area_num_1").append("<%= j(render("tag", tag: @tag, area_num: 1)) %>");
+	<% elsif @tag.area_num == 2 %>
+  	$("#tags_area_num_2").append("<%= j(render("tag", tag: @tag, area_num: 2)) %>");
+	<% elsif @tag.area_num == 3 %>
+  	$("#tags_area_num_3").append("<%= j(render("tag", tag: @tag, area_num: 3)) %>");
+	<% elsif @tag.area_num == 4 %>
+  	$("#tags_area_num_4").append("<%= j(render("tag", tag: @tag, area_num: 4)) %>");
+	<% else %>
+	  alert('error!');
+	<% end %>
 <%  elsif @status == 'fail' %>
-    alert('error!');
+  alert('error!');
 <% end %>
-$("#tag_model").fadeOut();
+
+$("#tag_modal").fadeOut(10);

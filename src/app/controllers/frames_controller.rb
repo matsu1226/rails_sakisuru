@@ -23,13 +23,6 @@ class FramesController < ApplicationController
   def show
   end
 
-  def index
-  end
-
-  def tags_edit
-    @frame = Frame.find_by(id: params[:id])
-
-  end
 
   private
     def frame_params

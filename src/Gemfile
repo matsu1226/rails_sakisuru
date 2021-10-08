@@ -64,8 +64,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# アイコン
-gem 'font-awesome-rails'
 # errors.full_messageの日本語化(https://qiita.com/Ushinji/items/242bfba84df7a5a67d5b)
 gem 'rails-i18n'
 # WEB APIを用いたsendgridの導入

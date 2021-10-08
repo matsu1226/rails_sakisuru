@@ -1,34 +1,35 @@
-$('#tag_model').html('<%= escape_javascript(render partial: "tag_form") %>');
-$("#tag_model").fadeIn();
+  $('#tag_modal').html('<%= escape_javascript(render partial: "tag_form") %>');
+  $("#tag_modal").fadeIn(10);
 
-function tag_text_count(){
+  function tag_text_count(){
 
-  const MAXIMUM_COUNT = 50;
-  let text = document.getElementById('tag_text');
-  let text_now_count = document.getElementById('tag_text_now_count');
+    const MAXIMUM_COUNT = 50;
+    let text = document.getElementById('tag_text');
+    let text_now_count = document.getElementById('tag_text_now_count');
 
-  function btn_disabled() {
-    let btn = document.getElementById('tag_create_btn');
-    if ( text.value.length == 0 || text.value.length > MAXIMUM_COUNT) {
-      btn.disabled = true;
+    function btn_disabled() {
+      let btn = document.getElementById('tag_create_btn');
+      if ( text.value.length == 0 || text.value.length > MAXIMUM_COUNT) {
+        btn.disabled = true;
+      } else {
+        btn.disabled = false;
+      }
+    }
+
+    function text_count() {
+      text_now_count.innerHTML = MAXIMUM_COUNT - text.value.length;
+    }
+
+
+    if (text == null) { 
+      console.log("tag.textの文字数カウントは動作していません")
     } else {
-      btn.disabled = false;
+      text.addEventListener('input', () => {
+        text_count();
+        btn_disabled();
+      })
     }
   }
 
-  function text_count() {
-    text_now_count.innerHTML = MAXIMUM_COUNT - text.value.length;
-  }
+  tag_text_count()
 
-
-  if (text == null) { 
-    console.log("tag.textの文字数カウントは動作していません")
-  } else {
-    text.addEventListener('input', () => {
-      text_count();
-      btn_disabled();
-    })
-  }
-}
-
-tag_text_count()

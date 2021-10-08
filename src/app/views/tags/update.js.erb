@@ -1,0 +1,17 @@
+<% if @status == 'success' %>
+	<% if @tag.area_num == 1 %>
+    $('#tags_area_num_1').html("<%= j(render "tags", area_num: 1) %>")
+	<% elsif @tag.area_num == 2 %>
+    $('#tags_area_num_2').html("<%= j(render "tags", area_num: 2) %>")
+	<% elsif @tag.area_num == 3 %>
+    $('#tags_area_num_3').html("<%= j(render "tags", area_num: 3) %>")
+	<% elsif @tag.area_num == 4 %>
+    $('#tags_area_num_4').html("<%= j(render "tags", area_num: 4) %>")
+	<% else %>
+	  alert('error!');
+	<% end %>
+<% elsif @status == 'fail' %>
+  alert('error!');
+<% end %>
+
+$("#tag_modal").fadeOut(10);

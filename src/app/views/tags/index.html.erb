@@ -1,1 +1,36 @@
-hoge
+<%= provide(:title, "投稿詳細の作成") %>
+
+<div class="field my-5 mx-auto">
+  <p><%= l @frame.updated_at, format: :date %></p>
+  <p>statement</p><br />
+  <p><%= @frame.statement %></p>
+</div>
+
+<%# Ajax化でモーダル式のTag_newフォーム表示 %>
+<%# tags#createでframe_id,area_numを使うので、frame,area_numをtags#newにも渡す。 %>
+
+<div class="h-screen">
+  <div class="flex h-3/6 justify-between">
+    <div id="area_num_1" class="border w-1/2 flex flex-col">
+    <%= render "tags_in_frame", area_num: 1 %>
+    </div>
+    <div id="area_num_2" class="border w-1/2 flex flex-col">
+    <%= render "tags_in_frame", area_num: 2 %>
+    </div>
+  </div>
+  <div class="flex h-3/6 justify-around">
+    <div id="area_num_3" class="border w-1/2 flex flex-col">
+    <%= render "tags_in_frame", area_num: 3 %>
+    </div>
+    <div id="area_num_4" class="border w-1/2 flex flex-col">
+    <%= render "tags_in_frame", area_num: 4 %>
+    </div>
+  </div>
+</div>
+
+<div class="actions my-6 mx-auto">
+  <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
+</div>
+
+<%# Tag_newのモーダルがここに表示される %>
+<div id="tag_modal"></div>
