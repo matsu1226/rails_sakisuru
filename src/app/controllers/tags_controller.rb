@@ -3,7 +3,6 @@ class TagsController < ApplicationController
   def index
     @frame = Frame.find_by(id: params[:frame_id])
     @tags = Tag.joins(:frame).where(frames: { user_id: current_user.id })
-    # binding.pry
   end
 
 

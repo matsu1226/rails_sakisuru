@@ -3,14 +3,15 @@ class FramesController < ApplicationController
   
   def new
     @frame = Frame.new
+    @frame_statement_count = 70 
+    @frame_text_count = 300
   end
 
 
   def create
-    # @frame = Frame.new(frame_params)
     @frame = current_user.frames.build(frame_params)
     if @frame.save
-      redirect_to tags_edit_frame_path
+      redirect_to frame_tags_path(frame_id: @frame.id)
     else
       render "frames/new"
     end
@@ -18,6 +19,18 @@ class FramesController < ApplicationController
 
 
   def edit
+    @frame = Frame.find_by(id: params[:id])
+    @frame_statement_count = 70 - @frame.statement.length
+    @frame_text_count = 300 - @frame.text.length
+  end
+
+  def update
+    @frame = Frame.find_by(id: params[:id])
+    if @frame.update(frame_params)
+      redirect_to frame_tags_path(frame_id: @frame.id)
+    else
+      render "frames/edit"
+    end
   end
 
   def show

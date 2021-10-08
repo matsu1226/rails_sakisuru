@@ -1,25 +1,3 @@
 <%= provide(:title, "投稿の作成") %>
 
-<%= form_with(model: @frame, url: frames_path, class:" w-4/5 mx-auto  my-5", local: true ) do |f| %>
-  <%= render "./shared/error_messages", elm: @frame %>
-
-  <div class="field my-5 mx-auto">
-    <div class="flex justify-between">
-      <%= f.label :statement %><br />
-      <p class="text-center mx-0 mb-2">あと<span id="statement_now_count">70</span>文字</p>
-    </div>
-    <%= f.text_area :statement, class:"h-24 border p-0.5 w-full resize-none" %>
-  </div>
-
-  <div class="field my-5 mx-auto">
-    <div class="flex justify-between">
-      <%= f.label :text %><br />
-      <p class="text-center mx-0 mb-2">あと<span id="text_now_count">300</span>文字</p>
-    </div>
-    <%= f.text_area :text, class:"h-80 border p-0.5 w-full resize-none" %>
-  </div>
-
-  <div class="actions my-6 mx-auto">
-    <%= f.submit "投稿詳細の作成へ", class:"block mx-auto", id: "frame_create_btn", disabled: true %>
-  </div>
-<% end %>
+<%= render "frame_form" %>
