@@ -4,6 +4,10 @@ const STATE_MAXIMUM_COUNT = 70;
 
 export default() => {
 
+  document.addEventListener("turbolinks:load", ()=> {
+    frame_text_count();
+  });
+
   function frame_text_count(){
     let text = document.getElementById('frame_text');
     let text_now_count = document.getElementById('text_now_count');
@@ -29,7 +33,7 @@ export default() => {
     } 
     
     if( text == null || state == null ){
-      console.log("frame.textの文字数カウントは動作していません")
+      console.log("frameの文字数カウントは動作していません")
     }　else {      
       text.addEventListener('input', () => {
         text_count();
@@ -43,6 +47,5 @@ export default() => {
     }
   }
 
-  document.addEventListener('DOMContentLoaded', frame_text_count);
 
 }

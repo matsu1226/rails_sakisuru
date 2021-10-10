@@ -1,6 +1,6 @@
 <header>
   <nav class="border-b h-10 flex justify-between items-center">
-    <h1 class="text-2xl font-bold m-2"><%= yield(:title) %></h1>
+    <%= image_pack_tag "media/images/logo-small.png", class: "h-10" %>
     <div class="flex">
       <% if user_signed_in? %>
         <%= link_to destroy_user_session_path, method: :delete, class: "flex justify-center items-center" do %>

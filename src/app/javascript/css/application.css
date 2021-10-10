@@ -9,6 +9,22 @@ html {
   font-size: 0.85rem;
 }
 
+.h2 {
+  @apply font-bold;
+}
+
+.theme-color {
+  color: #008f45; 
+}
+
+.wrapper {
+  @apply my-10 mx-auto;
+}
+
+.card {
+  @apply bg-white rounded shadow h-8 w-auto p-1 m-1;
+}
+
 .date_select_wrapper > select {
   border: 1px solid rgb(229, 231, 235);
 }

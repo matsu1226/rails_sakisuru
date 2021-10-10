@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root 'static_pages#introduction'
   devise_for :users
+  
   resources :users, only: [:show]
   resources :frames do
-    resources :tags
+    resources :tags do
+      patch "drag_and_drop", on: :member    # drag_and_drop_frame_tags_path   PUT	/frames/:frame_id/tags/:id/drag_and_drop
+    end
   end
+
   # devise_for :users, skip: ['confirmations']  # 除外
   # http://localhost:3000/letter_opener で開発環境で送信されたメールの確認
   if Rails.env.development?

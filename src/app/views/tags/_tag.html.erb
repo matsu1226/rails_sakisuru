@@ -1,4 +1,4 @@
-    <div class="border h-8 w-auto p-1 m-1 flex justify-between">
+    <div class="card flex justify-between">
       <span class="w-5/6 truncate"><%= tag.text %></span>
       <span class="w-1/12">
       <%= link_to edit_frame_tag_path(tag.id, frame_id: @frame.id, area_num: area_num), remote: true, class: "w-full h-full" do %>

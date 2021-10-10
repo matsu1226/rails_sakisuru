@@ -3,12 +3,12 @@
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class:" w-4/5 mx-auto  my-5" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field my-5 mx-auto">
+  <div class="wrapper">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"border p-0.5 w-full" %>
   </div>
 
-  <div class="actions my-6 mx-auto">
+  <div class="wrapper">
     <%= f.submit "仮登録メール再送", class:"block mx-auto" %>
   </div>
 <% end %>
