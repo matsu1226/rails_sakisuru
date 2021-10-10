@@ -1,0 +1,9 @@
+<% if elm.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% elm.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

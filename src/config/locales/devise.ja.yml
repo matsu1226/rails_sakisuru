@@ -27,8 +27,18 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      frame:
+        statement: mission
+        text: story
     models:
       user: ユーザー
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      date: "%Y/%m/%d"
+      short_date: "%m/%d"
+      short_date_with_time: "%m/%d %H:%M"
+      day_only: "%d"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

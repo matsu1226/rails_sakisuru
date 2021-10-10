@@ -1,0 +1,11 @@
+<div id=<%="tags_area_num_#{area_num}"%> class="w-full">
+  <%# tags/update.js.erbのレンダリングのため、テンプレート化 %>
+  <%= render "tags", area_num: area_num %>
+</div>
+<div class="truncate h-full w-auto p-1 m-1 flex justify-center items-center">
+  <div class="h-full w-full p-2">
+    <%= link_to new_frame_tag_path(area_num: area_num), remote: true, class: "border-dashed border-2 bg-white flex justify-center items-center w-full h-full" do %>
+    <i class="fas fa-plus"></i>
+    <% end%>
+  </div>
+</div>

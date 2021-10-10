@@ -1,0 +1,56 @@
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close"></div>
+  <div class="modal__content">
+
+    <div class="text-right">
+      <button id="close_btn">
+      <%#= link_to tags_edit_frame_path(@frame.id), class: "p-5 -mr-7" do %>
+      <%# <span class="btn-close"></span> %>
+      <i class="fas fa-times fa-lg"></i> 
+      </button>
+      <%# end %>
+    </div>
+
+    <%# remote: trueにすることで、tags#createをjs(Ajax/create.js.erb)で処理 %>
+    <%# ネストしているときの書き方 https://pikawaka.com/rails/form_with#%E3%83%8D%E3%82%B9%E3%83%88%E3%82%92%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%99%82%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9 %>
+    <%= form_with(model: [@frame, @tag], local: false) do |f| %>
+    <div id="error_partial">
+      <%= render "./shared/error_messages", elm: @tag %>
+    </div>
+
+    <div class="field my-5 mx-auto">
+      <div class="flex justify-between">
+        <%= f.label :text %><br />
+        <p class="text-center mx-0 mb-2">あと<span id="tag_text_now_count">50</span>文字</p>
+      </div>
+      <%= f.text_area :text, class:"h-20 border p-0.5 w-full resize-none" %>
+    </div>
+
+    <div class="field my-5 mx-auto">
+      <%= f.label :privated %><br />
+      <%= f.check_box :privated, class:"border h-5 w-5", as: :boolean %>
+    </div>
+
+    <%# frame_id,area_numの受渡し %>
+    <%= f.hidden_field :area_num, value: @area_num_params %>
+    <%= f.hidden_field :frame_id, value: @frame.id %>
+
+    <div class="actions my-6 mx-auto">
+      <% if controller.action_name == "new" %>
+      <%= f.submit "作成", class:"block mx-auto", id: "tag_create_btn", disabled: true %>
+      <% elsif controller.action_name == "edit" %>
+      <%= f.submit "更新", class:"block mx-auto", id: "tag_create_btn", disabled: true %>
+      <%= link_to "削除", frame_tag_path, method: :delete, class:"block mx-auto", remote: true %>
+      <% end %>
+    </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+<script>
+  $("#close_btn").on('click',function(){
+    $('#tag_modal').fadeOut(10);
+  })
+</script>

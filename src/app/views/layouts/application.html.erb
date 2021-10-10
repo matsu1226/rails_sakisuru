@@ -11,11 +11,12 @@
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
-  <main class="w-11/12 mx-auto pb-20">
-    <%= render 'shared/flash' %>
-    <%= yield %>
-  </main>
-  <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' %>
+    <main class="w-11/12 mx-auto pb-20">
+      <%= render 'shared/flash' %>
+      <h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

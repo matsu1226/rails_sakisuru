@@ -1,11 +1,6 @@
 FactoryBot.define do
   factory :frame do
-    statement { "MyString" }
-    text { "MyText" }
-    user_id { 1 }
-    review_1 { "MyText" }
-    review_2 { "MyText" }
-    review_3 { "MyText" }
-    review_4 { "MyText" }
+    statement { "家族の幸福度を最大にする" }
+    text { "娘が生まれたことを機に時間を効率的に使いたいと思い、サキスルを始めました。" }
   end
 end

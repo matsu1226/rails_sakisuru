@@ -5,6 +5,8 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable, :trackable
   # validatable https://github.com/heartcombo/devise/blob/master/lib/devise/models/validatable.rb
 
+  has_many :frames
+
   validates :name, presence: true, length: {maximum: 12}
   validates :birthday, presence: true
   validate :birthday_check
