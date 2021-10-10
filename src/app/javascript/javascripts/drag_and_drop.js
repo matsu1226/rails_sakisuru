@@ -1,6 +1,7 @@
 // https://qiita.com/fumikao/items/77ffdffc24a9a814fad7
 
 export default() => {
+  // loadのたびに発火させたい！！！
   $(document).on('turbolinks:load', function() { 
     $(".tag_card").draggable();
     $("#area_num_1").droppable({

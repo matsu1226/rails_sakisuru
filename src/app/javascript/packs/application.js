@@ -25,6 +25,7 @@ const images = require.context('../images', true)
 import "@fortawesome/fontawesome-free/js/all";
 import "jquery-ui/ui/widgets/droppable";
 import "jquery-ui/ui/widgets/draggable";
+import "jquery-ui-touch-punch";
 
 import "../css/application.css";
 import "../css/application.scss";

@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
     @frame = Frame.find_by(id: params[:frame_id])
     @tags = Tag.joins(:frame).where(frames: { user_id: current_user.id })
