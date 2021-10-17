@@ -38,8 +38,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'capybara'
-  # system_spec用
-  gem 'webdrivers'
   # rspec_for_Ajax
   gem 'selenium-webdriver'
 end

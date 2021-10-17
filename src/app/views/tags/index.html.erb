@@ -1,8 +1,8 @@
-<%= provide(:title, "ToDoの作成") %>
+<%= provide(:title, "Taskの作成") %>
 
 <div class="wrapper">
   <div class="flex">
-    <h2 class="h2 mb-1">mission</h2>
+    <h2 class="h2 mb-1">Mission</h2>
     <%= link_to edit_frame_path(params[:frame_id]), class:"block ml-5" do %>
     <i class="far fa-edit"></i>
     <% end %>
@@ -13,7 +13,7 @@
 <%# Ajax化でモーダル式のTag_newフォーム表示 %>
 <%# tags#createでframe_id,area_numを使うので、frame,area_numをtags#newにも渡す。 %>
 <div class="wrapper">
-  <h2 class="h2 mb-1">To Do</h2>
+  <h2 class="h2 mb-1">Task</h2>
   <div id="tags_area_wrapper" class="h-screen">
     <div class="flex h-3/6 justify-between">
       <div id="area_num_1" class="border-r border-b bg-green-50 w-1/2 flex flex-col">
