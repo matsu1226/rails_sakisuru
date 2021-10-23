@@ -33,7 +33,22 @@ class FramesController < ApplicationController
     end
   end
 
+  def release
+    @frame = Frame.find_by(id: params[:frame_id])
+    if @frame && @frame.update(is_draft: false)
+      flash[:success] = "投稿しました"
+      redirect_to user_path(current_user)
+    else
+      render "tags/index"
+      flash[:success] = "投稿の作成に失敗しました"
+    end
+  end
+
   def show
+  end
+
+  def index
+    @frames = Frame.all.page(params[:page]).order(created_at: "DESC").per(10)
   end
 
 

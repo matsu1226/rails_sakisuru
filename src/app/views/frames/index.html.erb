@@ -1,2 +1,3 @@
-<h1>Frames#index</h1>
-<p>Find me in app/views/frames/index.html.erb</p>
+  <%= render "shared/frames", frames: @frames %>
+
+  <%= paginate @frames %>

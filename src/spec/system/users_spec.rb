@@ -180,5 +180,9 @@ RSpec.describe "Users", type: :system do
 
     end
 
+    describe "user情報(GET users/1)" do
+      
+    end
+
   end
 end

@@ -1,4 +1,6 @@
 <%= provide(:title, "Taskの作成") %>
+<h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+
 
 <div class="wrapper">
   <div class="flex">
@@ -34,6 +36,7 @@
   </div>
 
   <div class="actions my-6 mx-auto">
+  <%= link_to "投稿の公開", frame_release_path(@frame.id), method: :post, class:"block mx-auto"%>
     <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
   </div>
 </div>

@@ -40,6 +40,8 @@ group :development, :test do
   gem 'capybara'
   # rspec_for_Ajax
   gem 'selenium-webdriver'
+  gem 'faker'
+  gem 'gimei'
 end
 
 group :development do
@@ -72,3 +74,5 @@ gem 'dotenv-rails'
 gem 'rack-cors'
 # devise関連
 gem 'devise'
+# pagination
+gem 'kaminari'

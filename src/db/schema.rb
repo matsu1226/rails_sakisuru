@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_062326) do
+ActiveRecord::Schema.define(version: 2021_10_23_075858) do
 
   create_table "frames", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "statement"
     t.text "text"
     t.bigint "user_id", null: false
-    t.text "review_1"
-    t.text "review_2"
-    t.text "review_3"
-    t.text "review_4"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_draft", default: true
+    t.text "review"
     t.index ["user_id"], name: "index_frames_on_user_id"
   end
 
@@ -54,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_10_07_062326) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.date "birthday"
+    t.string "image"
+    t.text "profile"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name"
