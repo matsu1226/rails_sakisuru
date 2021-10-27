@@ -1,8 +1,21 @@
 <% frames.each do |frame| %>
 <div class="wrapper">
   <div class="inner-wrapper">
-    <div class="pb-2">
-      <p><%= l frame.created_at, format: :date_with_time %></p>
+    <div class="pb-2 flex justify-between">
+      <div class="flex">
+        <%= render "shared/user_image", { image: @image, size: 10 } %>    
+        <div class="ml-2">
+          <p class="font-bold"><%= @user.name %></p>
+          <p class="text-gray-700	"><%= l frame.created_at, format: :date_with_time %></p>
+        </div>
+      </div>
+      <% if frame.user_id == current_user.id %>
+        <div>
+        <%= link_to frame_tags_path(frame_id: frame.id), class:"" do %>
+          <p>編集<i class="far fa-edit ml-1"></i></p>
+        <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="pb-2">

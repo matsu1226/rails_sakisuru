@@ -30,6 +30,3 @@ import "jquery-ui-touch-punch";
 import "../css/application.css";
 import "../css/application.scss";
 import '../javascripts/application.js';
-
-// webpackerを使ってjs,scssを適用
-// https://qiita.com/kazutosato/items/d47b7705ee545de4cb1a

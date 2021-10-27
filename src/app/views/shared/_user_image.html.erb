@@ -1,0 +1,7 @@
+<div class="relative w-<%=size%> h-<%=size%> rounded-full overflow-hidden border-green-600 border-2">
+  <% if image.present? %>
+    <%= image_tag image.url, class:"absolute inset-0 ", width: "100%" %>
+  <% else %>
+    <%= image_pack_tag "default_user_image.png", class:"absolute inset-0", width: "100%" %>
+  <% end %>
+</div>

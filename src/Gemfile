@@ -76,3 +76,10 @@ gem 'rack-cors'
 gem 'devise'
 # pagination
 gem 'kaminari'
+
+# CarrierwaveとMiniMagickの基本 https://techtechmedia.com/carrierwave-minimagick-image/
+# imagemagick on docker https://qiita.com/na-tsune/items/3fbc28488a65f28ff82e
+# ファイルアップロード
+gem 'carrierwave'
+# 画像加工
+gem 'mini_magick'

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # root 'static_pages#introduction'
   devise_for :users
   devise_scope :users do
-    get "users/:id", to: "users#show", as: :users
+    get "users/:id", to: "users#show", as: :user
+    patch "users/:id", to: "users#update"
+    get "users/:id/edit", to: "users#edit", as: :edit_user
   end
   
   resources :frames do

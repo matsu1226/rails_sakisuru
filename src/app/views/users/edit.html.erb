@@ -1,0 +1,51 @@
+<%= provide(:title, "ユーザー情報の編集") %>
+<div class="bg-white">
+
+  <h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+
+  <%= form_with(model: @user, html: { class:" w-4/5 mx-auto  my-5" }) do |f| %>
+    <%= render "shared/error_messages", elm: @user %>
+
+    <div class="wrapper">
+      <%# ユーザー情報にアイコンとプロフィールを追加する方法を丁寧に解説（rails） %>
+      <%# https://qiita.com/naoki00m/items/6430ab0b62766b582c9a %>
+
+      <div class="relative mx-auto w-20 h-20 rounded-full overflow-hidden border-green-600 border-2">
+        <div class="absolute inset-0" id="image_preview">
+          <% if @image.present? %>
+            <%= image_tag @image.url, class:"absolute inset-0 ", width: "100%" %>
+          <% else %>
+            <%= image_pack_tag "default_user_image.png", class:"absolute inset-0", width: "100%" %>
+          <% end %>
+        </div>
+        <div>
+          <%= f.file_field :image, class:"absolute inset-0 w-20 h-20 rounded-full opacity-0 cursor-pointer", id:"upload_image" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"border p-0.5 w-full" %>
+    </div>
+
+    <div class="wrapper date_select_wrapper">
+      <%= f.label :birthday %><br />
+      <%= f.date_select :birthday, selected: @user.birthday , start_year: 1920, end_year: Time.now.year, autofocus: true, autocomplete: "birthday", class:"border p-0.5 w-full" %>日
+    </div>
+
+    <div class="wrapper">
+      <div class="flex justify-between">
+        <%= f.label :profile %><br />
+        <p class="text-center mx-0 mb-2">あと<span id="profile_now_count"><%= @user_profile_count %></span>文字</p>
+      </div>
+      <%= f.text_area :profile, class:"h-20 border p-0.5 w-full resize-none", id: "profile" %>
+    </div>
+
+    <div class="actions wrapper">
+      <%= f.submit "更新", class:"block mx-auto",id: "user_update_btn", disabled: true %>
+      
+    </div>
+  <% end %>
+
+</div>

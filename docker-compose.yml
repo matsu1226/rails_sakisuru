@@ -15,7 +15,7 @@ services:
       - ./src:/app
       - gem_data:/usr/local/bundle
     environment:
-      SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
+      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
     ports:
       - "3000:3000"
     depends_on:
@@ -37,7 +37,7 @@ services:
       - "3035:3035"
 
   selenium_chrome:
-    image: selenium/standalone-chrome
+    image: selenium/standalone-chrome-debug
     ports:
       - '4444:4444'
 

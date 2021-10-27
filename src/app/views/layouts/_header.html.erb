@@ -6,7 +6,7 @@
         <%= link_to destroy_user_session_path, method: :delete, class: "flex justify-center items-center" do %>
           <i class="fas  fa-lg fa-sign-out-alt m-2"></i>
         <% end %>
-        <%= link_to users_path(current_user), class: "flex justify-center items-center" do %>
+        <%= link_to user_path(current_user), class: "flex justify-center items-center" do %>
           <i class="fas fa-lg fa-users-cog m-2"></i>
         <% end %>
       <% end %>

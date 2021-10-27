@@ -6,10 +6,14 @@ class User < ApplicationRecord
   # validatable https://github.com/heartcombo/devise/blob/master/lib/devise/models/validatable.rb
 
   has_many :frames
+  mount_uploader :image, ImageUploader
 
   validates :name, presence: true, length: {maximum: 12}
   validates :birthday, presence: true
+  validates :profile, length: {maximum: 140}
+
   validate :birthday_check
+
 
   def birthday_check
     # ":birthday, presence: true" は別に設定
