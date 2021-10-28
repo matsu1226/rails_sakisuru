@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  get 'user/show'
+  # resources :users, only: [:show]
   root 'static_pages#home'
   
   get '/home', to: 'static_pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root 'static_pages#introduction'
   devise_for :users
+  devise_scope :users do
+    get "users/:id", to: "users#show", as: :user
+    patch "users/:id", to: "users#update"
+    get "users/:id/edit", to: "users#edit", as: :edit_user
+  end
   
-  resources :users, only: [:show]
   resources :frames do
+    post "release"                          # frame_release_path	POST	/frames/:frame_id/release
     resources :tags do
       patch "drag_and_drop", on: :member    # drag_and_drop_frame_tags_path   PUT	/frames/:frame_id/tags/:id/drag_and_drop
     end

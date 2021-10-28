@@ -1,46 +1,52 @@
-<%= provide(:title, "ToDoの作成") %>
+<%= provide(:title, "Taskの作成") %>
+<div class="bg-white">
 
-<div class="wrapper">
-  <div class="flex">
-    <h2 class="h2 mb-1">mission</h2>
-    <%= link_to edit_frame_path(params[:frame_id]), class:"block ml-5" do %>
-    <i class="far fa-edit"></i>
-    <% end %>
+  <h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+
+
+  <div class="wrapper">
+    <div class="flex">
+      <h2 class="h2 mb-1">Mission</h2>
+      <%= link_to edit_frame_path(params[:frame_id]), class:"block ml-5" do %>
+      <i class="far fa-edit"></i>
+      <% end %>
+    </div>
+    <p class="rounded border p-2"><%= @frame.statement %></p>
   </div>
-  <p class="rounded border p-2"><%= @frame.statement %></p>
-</div>
 
-<%# Ajax化でモーダル式のTag_newフォーム表示 %>
-<%# tags#createでframe_id,area_numを使うので、frame,area_numをtags#newにも渡す。 %>
-<div class="wrapper">
-  <h2 class="h2 mb-1">To Do</h2>
-  <div id="tags_area_wrapper" class="h-screen">
-    <div class="flex h-3/6 justify-between">
-      <div id="area_num_1" class="border-r border-b bg-green-50 w-1/2 flex flex-col">
-      <%= render "tags_in_frame", area_num: 1 %>
+  <%# Ajax化でモーダル式のTag_newフォーム表示 %>
+  <%# tags#createでframe_id,area_numを使うので、frame,area_numをtags#newにも渡す。 %>
+  <div class="wrapper">
+    <h2 class="h2 mb-1">Task</h2>
+    <div id="tags_area_wrapper" class="h-screen">
+      <div class="flex h-3/6 justify-between">
+        <div id="area_num_1" class="border-r border-b bg-green-50 w-1/2 flex flex-col">
+        <%= render "tags_in_frame", area_num: 1 %>
+        </div>
+        <div id="area_num_2" class="border-l border-b bg-blue-50 w-1/2 flex flex-col">
+        <%= render "tags_in_frame", area_num: 2 %>
+        </div>
       </div>
-      <div id="area_num_2" class="border-l border-b bg-blue-50 w-1/2 flex flex-col">
-      <%= render "tags_in_frame", area_num: 2 %>
+      <div class="flex h-3/6 justify-around">
+        <div id="area_num_3" class="border-r border-t bg-yellow-50 w-1/2 flex flex-col">
+        <%= render "tags_in_frame", area_num: 3 %>
+        </div>
+        <div id="area_num_4" class="border-l border-t bg-red-50 w-1/2 flex flex-col">
+        <%= render "tags_in_frame", area_num: 4 %>
+        </div>
       </div>
     </div>
-    <div class="flex h-3/6 justify-around">
-      <div id="area_num_3" class="border-r border-t bg-yellow-50 w-1/2 flex flex-col">
-      <%= render "tags_in_frame", area_num: 3 %>
-      </div>
-      <div id="area_num_4" class="border-l border-t bg-red-50 w-1/2 flex flex-col">
-      <%= render "tags_in_frame", area_num: 4 %>
-      </div>
-    </div>
-  </div>
 
-  <div class="actions my-6 mx-auto">
-    <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
+    <div class="actions my-6 mx-auto">
+    <%= link_to "投稿の公開", frame_release_path(@frame.id), method: :post, class:"block mx-auto"%>
+      <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
+    </div>
   </div>
 </div>
 
 
-<%# Tag_newのモーダルがここに表示される %>
-<div id="tag_modal"></div>
+  <%# Tag_newのモーダルがここに表示される %>
+  <div id="tag_modal"></div>
 
-<%# drag_and_drop.jsにframe.idを渡す用 %>
-<%#= hidden_field_tag "frame_id", @frame.id %>
+  <%# drag_and_drop.jsにframe.idを渡す用 %>
+  <%#= hidden_field_tag "frame_id", @frame.id %>

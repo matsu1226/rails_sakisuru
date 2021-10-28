@@ -22,7 +22,7 @@ export default() => {
       containment: '#tags_area_wrapper',
       scroll: false,
       revert: "invalid",    // dropがacceptされなかった時だけdraggable要素を元の位置に戻す
-      revertDuration: 300
+      revertDuration: 200
     });
   
     for(let num = 1; num <= 4; num++ ) {

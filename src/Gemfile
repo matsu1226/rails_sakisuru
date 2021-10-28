@@ -38,10 +38,10 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'capybara'
-  # system_spec用
-  gem 'webdrivers'
   # rspec_for_Ajax
   gem 'selenium-webdriver'
+  gem 'faker'
+  gem 'gimei'
 end
 
 group :development do
@@ -74,3 +74,12 @@ gem 'dotenv-rails'
 gem 'rack-cors'
 # devise関連
 gem 'devise'
+# pagination
+gem 'kaminari'
+
+# CarrierwaveとMiniMagickの基本 https://techtechmedia.com/carrierwave-minimagick-image/
+# imagemagick on docker https://qiita.com/na-tsune/items/3fbc28488a65f28ff82e
+# ファイルアップロード
+gem 'carrierwave'
+# 画像加工
+gem 'mini_magick'

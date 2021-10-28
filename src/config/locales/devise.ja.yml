@@ -12,6 +12,8 @@ ja:
         email: Eメール
         name: 名前
         birthday: 誕生日
+        profile: 自己紹介
+        image: プロフィール画像
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -35,10 +37,17 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+      date_with_time: "%Y/%m/%d %H:%M"
       date: "%Y/%m/%d"
       short_date: "%m/%d"
       short_date_with_time: "%m/%d %H:%M"
       day_only: "%d"
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

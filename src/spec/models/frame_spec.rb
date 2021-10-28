@@ -12,10 +12,7 @@ RSpec.describe Frame, type: :model do
   it { should respond_to(:statement) }
   it { should respond_to(:text) }
   it { should respond_to(:user_id) }
-  it { should respond_to(:review_1) }
-  it { should respond_to(:review_2) }
-  it { should respond_to(:review_3) }
-  it { should respond_to(:review_4) }
+  it { should respond_to(:review) }
 
   it { should respond_to(:user) }
   it { should respond_to(:tags) }

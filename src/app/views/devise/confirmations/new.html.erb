@@ -1,4 +1,6 @@
 <%= provide(:title, "仮登録メール再送") %>
+<h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class:" w-4/5 mx-auto  my-5" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

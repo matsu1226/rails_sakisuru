@@ -18,12 +18,21 @@ html {
 }
 
 .wrapper {
-  @apply my-10 mx-auto;
+  @apply my-3 bg-white;
+}
+.inner-wrapper {
+  @apply mx-auto w-11/12 py-3;
 }
 
 .card {
   @apply bg-white rounded shadow h-8 w-auto p-1 m-1;
 }
+
+.icon {
+  width: 80px;
+  height: 80px;
+}
+
 
 .date_select_wrapper > select {
   border: 1px solid rgb(229, 231, 235);
