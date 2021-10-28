@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_setting
+  before_action :signed_in?
   before_action :correct_user? , only: [:edit, :update]
 
   def show
@@ -24,6 +25,13 @@ class UsersController < ApplicationController
   private
     def user_setting
       @user = User.find_by(id: params[:id])
+    end
+
+    def signed_in?
+      unless current_user
+        redirect_to new_user_session_path
+        flash[:warning] = "ログインもしくはアカウント登録してください。"
+      end
     end
 
     def correct_user?
