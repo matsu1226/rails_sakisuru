@@ -2,10 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Frames", type: :system do
   let(:user) { FactoryBot.create(:user) }
-  let(:frame) { FactoryBot.create(:frame) }
+  let(:frame) { FactoryBot.create(:frame, user: user) }
   let(:tag_index_text) { "Taskの作成" }
 
-  # let(:user) { User.find_by(email: "shotaro@example.com") }
   before do
     user.update_attribute(:confirmed_at, Time.zone.now)
     sign_in(user)

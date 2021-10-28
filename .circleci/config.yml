@@ -28,7 +28,7 @@ jobs:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       BUNDLE_PATH: vendor/bundle
-      APP_DATABASE_HOST: "127.0.0.1" 
+      APP_DATABASE_HOST: "127.0.0.1"
       RAILS_ENV: test
       SELENIUM_DRIVER_URL: "http://selenium_chrome:4444/wd/hub"
     working_directory: ~/rails_sakisuru/src
