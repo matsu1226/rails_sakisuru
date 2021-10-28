@@ -1,6 +1,8 @@
 <%= provide(:title, "Taskの作成") %>
 <div class="bg-white">
 
+<div class="inner-wrapper">
+
   <h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
 
 
@@ -37,8 +39,10 @@
       </div>
     </div>
 
-    <div class="actions my-6 mx-auto">
+    <div class="actions my-6 mx-auto flex">
     <%= link_to "投稿の公開", frame_release_path(@frame.id), method: :post, class:"block mx-auto"%>
+    <%= link_to "投稿の削除", frame_path(@frame), method: :delete, class:"frames-destroy block mx-auto bg-red-400" , data: { confirm: "本当によろしいですか？"}%>
+
       <%#= f.submit "投稿詳細の作成へ", class:"block mx-auto" %>
     </div>
   </div>
@@ -50,3 +54,5 @@
 
   <%# drag_and_drop.jsにframe.idを渡す用 %>
   <%#= hidden_field_tag "frame_id", @frame.id %>
+</div>
+

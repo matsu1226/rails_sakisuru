@@ -33,6 +33,13 @@ class FramesController < ApplicationController
     end
   end
 
+  def destroy
+    @frame = Frame.find_by(id: params[:id])
+    @frame.destroy
+    redirect_to user_path(current_user)
+    flash[:success] = "投稿を削除しました"
+  end
+
   def release
     @frame = Frame.find_by(id: params[:frame_id])
     if @frame && @frame.update(is_draft: false)

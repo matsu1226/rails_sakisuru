@@ -5,7 +5,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable, :trackable
   # validatable https://github.com/heartcombo/devise/blob/master/lib/devise/models/validatable.rb
 
-  has_many :frames
+  has_many :frames, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   validates :name, presence: true, length: {maximum: 12}
