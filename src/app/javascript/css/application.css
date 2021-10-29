@@ -28,6 +28,50 @@ html {
   @apply bg-white rounded shadow h-8 w-auto p-1 m-1;
 }
 
+
+.btn {
+  background-color: rgb(52, 211, 153);
+  color: white;
+  margin: 10px auto;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+.btn:disabled {
+  background-color: rgb(209, 213, 219);
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.red-btn {
+  background-color: rgb(248, 113, 113);
+  color: white;
+  margin: 10px auto;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+.red-btn:disabled {
+  background-color: rgb(209, 213, 219);
+}
+.red-btn:hover {
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: white;
+  color: black;
+  padding: 1px 5px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-color: #999;
+  height: fit-content;
+}
+.edit-btn:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+
 .icon {
   width: 80px;
   height: 80px;

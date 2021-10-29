@@ -6,24 +6,27 @@
         <%= render "shared/user_image", { image: frame.user.image, size: 10 } %>    
         <div class="ml-2">
           <p class="font-bold"><%= frame.user.name %></p>
-          <p class="text-gray-700	"><%= l frame.created_at, format: :date_with_time %></p>
+          <p class="text-gray-600"><%= l frame.created_at, format: :date_with_time %></p>
         </div>
       </div>
-      <% if frame.user_id == current_user.id %>
-        <div>
-        <%= link_to frame_tags_path(frame_id: frame.id), class: "edit_frame_#{frame.id}" do %>
-          <p>編集<i class="far fa-edit ml-1"></i></p>
-        <% end %>
+      <% if current_user && frame.user_id == current_user.id %>
+        <div class="flex">
+          <%= link_to frame_tags_path(frame_id: frame.id), class: "mr-1 edit-btn edit_frame_#{frame.id}" do %>
+            <p>edit</p>
+          <% end %>
+          <%= link_to frame_review_path(frame_id: frame.id), class: "edit-btn edit_frame_#{frame.id}" do %>
+            <p>review</p>
+          <% end %>
         </div>
       <% end %>
     </div>
 
     <div class="pb-2">
-      <p>Mission</p>
+      <p class="text-lg">Mission</p>
       <p><%= frame.statement %></p>
     </div>
 
-    <div class="h-80">
+    <div class="h-80 pb-2">
       <div class="flex h-3/6 justify-between">
       <%= render "shared/tags_in_frames", { area_num: 1, frame: frame, border_and_bg_color: "border-r border-b bg-green-50 " } %>
       <%= render "shared/tags_in_frames", { area_num: 2, frame: frame, border_and_bg_color: "border-l border-b bg-blue-50 " } %>
@@ -35,6 +38,16 @@
 
       </div>
     </div>
+
+    <% if frame.review.present? %>
+    <div class="">
+      <div class="flex justify-between">
+        <p class="text-lg">review</p>
+        <p class="text-gray-600"><%= frame.reviewed_at %></p>
+      </div>
+      <p><%= frame.review %></p>
+    </div>
+    <% end %>
   </div>
 </div>
 <% end %>

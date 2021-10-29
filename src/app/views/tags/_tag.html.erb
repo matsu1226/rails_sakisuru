@@ -1,7 +1,7 @@
     <div class="card flex justify-between">
       <span class="w-5/6 truncate"><%= tag.text %></span>
-      <span class="w-1/12">
-      <%= link_to edit_frame_tag_path(tag.id, frame_id: @frame.id, area_num: area_num), remote: true, class: "w-full h-full" do %>
+      <span class="w-1/6 text-right">
+      <%= link_to edit_frame_tag_path(tag.id, frame_id: @frame.id, area_num: area_num), remote: true, class: "edit-btn" do %>
       <i class="far fa-edit"></i>
       <% end %>
       </span>

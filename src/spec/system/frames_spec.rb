@@ -96,9 +96,9 @@ RSpec.describe "Frames", type: :system do
       end
   
       describe "削除" do
-        it "" do
+        before {visit frame_tags_path(frame_id: frame.id) }
+        it "削除したらframeが1つ減る" do
           expect {
-            visit frame_tags_path(frame_id: frame.id)
             find(".frames-destroy").click
             page.driver.browser.switch_to.alert.accept  
           }.to change { Frame.all.count }.by(-1)

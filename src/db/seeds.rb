@@ -19,7 +19,9 @@ frame = user.frames.create!(
   statement: "家族を最優先に時間を使い、家族の幸福度の総和を高める",
   text: "まずは「この投稿を記録→1週間の時間 の使い方を細かく記録→1週間後にその記録と投稿を見比べて、正しい時間の使い方をしているかを検証→次週の投稿に生かす」のサイクルを回す。頑張るぞ！! ",
   is_draft: false,
-  review: "先週は80点。第一を素早くこなすことに成功したけれど、第二に書いた「家族とディナーに行く」が仕事の都合で延期に…。今週こそ挽回したい。"
+  review: "先週は80点。第一を素早くこなすことに成功したけれど、第二に書いた「家族とディナーに行く」が仕事の都合で延期に…。今週こそ挽回したい。",
+  reviewed_at: Time.zone.now
+
 )
 
 tag1 = frame.tags.create!(
@@ -79,7 +81,8 @@ tag7 = frame.tags.create!(
       statement: sample_statement,
       text: sample_text,
       is_draft: false,
-      review: sample_review
+      review: sample_review,
+      reviewed_at: Time.zone.now
     )
   
     10.times do
