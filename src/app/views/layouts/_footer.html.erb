@@ -1,22 +1,20 @@
 <footer class="bg-white">
   <nav class="fixed bottom-0 h-10 w-screen bg-white flex justify-between items-center">
-    <%= link_to "#", class: "w-1/5 flex flex-col justify-between items-center" do%>
-    <i class="h-3/4 fas fa-lg fa-list-ul"></i>
-    <p class="h-1/4 text-xs">一覧</p>
+  <% if user_signed_in? %>
+    <%= link_to new_frame_path, class: "w-1/4 flex flex-col justify-between items-center" do%>
+    <i class="h-3/4 fas fa-lg fa-pencil-alt"></i>
+    <p class="h-1/4 text-xs">create</p>
     <% end %>
-    <%= link_to "#", class: "w-1/5 flex flex-col justify-between items-center" do %>
-    <i class="h-3/4 fas fa-lg fa-coins"></i>
-    <p class="h-1/4 text-xs">収入</p>
-    <% end %>
-    <%= link_to frames_path, class: "w-1/5 flex flex-col justify-between items-center" do %>
+  <% end %>
+    <%= link_to frames_path, class: "w-1/4 flex flex-col justify-between items-center" do %>
     <i class="h-3/4 fas fa-lg fa-home"></i>
     <p class="h-1/4 text-xs">home</p>
     <% end %>
-    <%= link_to "#", class: "w-1/5 flex flex-col justify-between items-center" do %>
+    <%= link_to "#", class: "w-1/4 flex flex-col justify-between items-center" do %>
     <i class="h-3/4 fas fa-lg fa-chart-pie"></i>
     <p class="h-1/4 text-xs">月合計</p>
     <% end %>
-    <%= link_to "#", class: "w-1/5 flex flex-col justify-between items-center" do %>
+    <%= link_to "#", class: "w-1/4 flex flex-col justify-between items-center" do %>
     <i class="h-3/4 fas fa-lg fa-chart-bar"></i>
     <p class="h-1/4 text-xs">年合計</p>
     <% end %>

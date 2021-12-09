@@ -1,28 +1,53 @@
 version: '3'
 services:
-  db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - mysql_data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-
-  web: &app
-    build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  app: &app
+    build:
+      context: .
     volumes:
       - ./src:/app
       - gem_data:/usr/local/bundle
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+      - log-data:/app/log
     environment:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-      - selenium_chrome
+    networks:
+      - sakisuru-network
     tty: true
     stdin_open: true
+  # =========ローカルと本番切り替え===========
+    command: bundle exec puma -C config/puma.rb -e production
+    # command: bundle exec puma -C config/puma.rb
+    depends_on:
+      # - db
+      - selenium_chrome
+
+  # db:
+  #   image: mysql:8.0
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: app_development
+  #   networks:
+  #     - sakisuru-network
+
+  # ======================================
+  web:
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - sakisuru-network
 
   webpacker:
     <<: *app
@@ -44,3 +69,10 @@ services:
 volumes:
   mysql_data:
   gem_data:
+  public-data:
+  tmp-data:
+  log-data:
+
+networks:
+  sakisuru-network:
+    external: true

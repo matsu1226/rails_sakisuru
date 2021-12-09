@@ -2,8 +2,8 @@
   <%= content_tag "div", id: "tag_card_#{tag.id}", class: "area_num_#{area_num} tag_card card flex justify-between",
     data: {update_url: drag_and_drop_frame_tag_path(tag.id, frame_id: @frame.id)} do %>
     <span class="w-5/6 truncate" id=<%= "tag_text_#{tag.id}" %>><%= tag.text %></span>
-    <span class="w-1/12">
-      <%= link_to edit_frame_tag_path(tag.id, frame_id: params[:frame_id], area_num: area_num), remote: true, class: "w-full h-full" do %>
+    <span class="w-1/6 text-right">
+      <%= link_to edit_frame_tag_path(tag.id, frame_id: params[:frame_id], area_num: area_num), remote: true, class: "edit-btn" do %>
       <i class="far fa-edit"></i>
       <% end %>
     </span>

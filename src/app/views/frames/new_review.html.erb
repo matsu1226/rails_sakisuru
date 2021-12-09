@@ -1,0 +1,49 @@
+<%= provide(:title, "reviewの更新") %>
+<div class="bg-white">
+
+<div class="inner-wrapper">
+
+  <h1 class="text-2xl text-center font-bold m-3"><%= yield(:title) %></h1>
+
+  <div>
+    <p>このマトリックスは[<%= @term %>日前]に作成されました</p>
+    <p>前回作成した時間管理マトリックスの振り返りをしてみましょう</p>
+  </div>
+
+  <div class="wrapper">
+  <%= form_with(model:@frame, url:frame_review_path(frame_id: @frame.id), local: false) do |f|%>
+    <div class="flex justify-between">
+      <%= f.label :review %>
+      <p class="text-center mx-0 mb-2">あと<span id="review_now_count"><%= @frame_review_count %></span>文字</p>
+    </div>
+    <%= f.text_area :review, class:"h-20 border p-0.5 w-full resize-none" %>
+      
+    <%= f.submit "更新", class:"btn block" %>
+
+  <% end %>
+  </div>
+
+  <div class="border-t my-5">
+    <h2 class="text-xl font-bold my-3">前回のマトリックス</h2>
+    <div class="wrapper">
+      <p>Mission</p>
+      <p><%= @frame.statement %></p>
+      <p class="my-2">Story</p>
+      <p><%= @frame.text %></p>
+    </div>
+
+    <div class="h-screen">
+      <div class="flex h-3/6 justify-between">
+      <%= render "shared/tags_in_frames", { area_num: 1, frame: @frame, border_and_bg_color: "border-r border-b bg-green-50 " } %>
+      <%= render "shared/tags_in_frames", { area_num: 2, frame: @frame, border_and_bg_color: "border-l border-b bg-blue-50 " } %>
+      </div>
+
+      <div class="flex h-3/6 justify-around">
+      <%= render "shared/tags_in_frames", { area_num: 3, frame: @frame, border_and_bg_color: "border-r border-t bg-yellow-50 " } %>
+      <%= render "shared/tags_in_frames", { area_num: 4, frame: @frame, border_and_bg_color: "border-l border-t bg-red-50 " } %>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,19 +1,14 @@
 <%= provide(:title, "ようこそ") %>
 
-<section class="intro-section btn-wrapper">
-  <h2>さっそく、つかってみよう！</h2>
-  <%= link_to "会員登録へ", new_user_registration_path, class: "btn standerd-btn btn-primary" %>
-  <%= link_to  new_user_session_path, class: "btn standerd-btn btn-primary" do %>
-  登録済みの方はこちら<br>（ログイン）
-  <% end %>
-  <%#= link_to  guest_sign_in_path, class: "btn standerd-btn btn-primary" do %>
-  <%# end %>
-
-  <% if user_signed_in? %>
-    <p>ログインユーザー情報</p>
-    name：<%= current_user.name %>
-    email：<%= current_user.email %>
-    id：<%= current_user.id %>
-  <% end %>
+<section class="intro-section btn-wrapper bg-white">
+  <h2 class="text-center my-5">さっそく、つかってみよう！</h2>
+  <div class="flex flex-col">
+    <%= link_to "会員登録へ", new_user_registration_path, class: "btn standerd-btn btn-primary" %>
+    <%= link_to  new_user_session_path, class: "btn standerd-btn btn-primary" do %>
+    ログインはこちら
+    <% end %>
+    <%#= link_to  guest_sign_in_path, class: "btn standerd-btn btn-primary" do %>
+    <%# end %>
+  </div>
 
 </section>

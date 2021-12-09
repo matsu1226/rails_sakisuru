@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_075858) do
+ActiveRecord::Schema.define(version: 2021_10_29_092109) do
 
   create_table "frames", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "statement"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_10_23_075858) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_draft", default: true
     t.text "review"
+    t.datetime "reviewed_at"
+    t.datetime "released_at"
     t.index ["user_id"], name: "index_frames_on_user_id"
   end
 

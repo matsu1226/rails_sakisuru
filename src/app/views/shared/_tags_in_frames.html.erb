@@ -1,0 +1,13 @@
+<div class="<%= border_and_bg_color %> w-1/2 flex flex-col h-full">
+  <% Tag.where(frame_id: frame.id, area_num: area_num).each_with_index do |tag, i| %>
+    <% if i == 3 %>
+      <%= content_tag "div", class: "flex justify-center items-center h-full" do %>
+        <i class="fas fa-ellipsis-v w-full text-center"></i>
+      <% end %>
+      <% break %>
+    <% end %>
+    <%= content_tag "div", class: "card flex justify-between" do %>
+      <span class="w-5/6 truncate"><%= tag.text %></span>
+    <% end %>
+  <% end %>
+</div>

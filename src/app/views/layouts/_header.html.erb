@@ -9,6 +9,10 @@
         <%= link_to user_path(current_user), class: "flex justify-center items-center" do %>
           <i class="fas fa-lg fa-users-cog m-2"></i>
         <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "flex justify-center items-center" do %>
+          <i class="fas fa-lg fa-sign-in-alt m-2"></i>
+        <% end %>
       <% end %>
     </div>
   </nav>
