@@ -37,5 +37,5 @@ src/.yarn-integrity
 
 src/db/mysql_data
 
-.ssh/*
+.ssh
 src/.env
