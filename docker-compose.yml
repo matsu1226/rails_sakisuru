@@ -1,5 +1,18 @@
 version: '3'
 services:
+  web:
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - sakisuru-network
+
   app: &app
     build:
       context: .
@@ -15,7 +28,7 @@ services:
       - sakisuru-network
     tty: true
     stdin_open: true
-  # =========ローカルと本番切り替え===========
+# =========ローカルと本番切り替え===========
     command: bundle exec puma -C config/puma.rb -e production
     # command: bundle exec puma -C config/puma.rb
     depends_on:
@@ -35,31 +48,18 @@ services:
   #   networks:
   #     - sakisuru-network
 
-  # ======================================
-  web:
-    build:
-      context: ./nginx_docker
-    volumes:
-      - public-data:/app/public
-      - tmp-data:/app/tmp
-    ports:
-      - 80:80
-    depends_on:
-      - app
-    networks:
-      - sakisuru-network
-
-  webpacker:
-    <<: *app
-    depends_on: 
-      - web
-    environment:
-      - NODE_ENV=development
-      - RAILS_ENV=development
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-    command: ./bin/webpack-dev-server
-    ports:
-      - "3035:3035"
+  # webpacker:
+  #   <<: *app
+  #   depends_on: 
+  #     - web
+  #   environment:
+  #     - NODE_ENV=development
+  #     - RAILS_ENV=development
+  #     - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+  #   command: ./bin/webpack-dev-server
+  #   ports:
+  #     - "3035:3035"
+# ======================================
 
   selenium_chrome:
     image: selenium/standalone-chrome-debug
